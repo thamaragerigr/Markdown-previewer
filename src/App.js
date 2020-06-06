@@ -4,7 +4,21 @@ import Badge from "react-bootstrap/Badge";
 export default class App extends React.Component {
   
   render() {
-
+    const inputStyle = {
+      width: "400px",
+      height: "50vh",
+      marginLeft: "auto",
+      marginRight: "auto",
+      padding:"10px"
+    };
+    const outputStyle = {
+      width: "400px",
+      height: "50vh",
+      backgroundColor: "#DCDCDC",
+      marginLeft: "auto",
+      marginRight: "auto",
+      padding:"10px"
+    };
     return (
       <div className="App">
         <div className="container">
@@ -26,8 +40,11 @@ export default class App extends React.Component {
                   </Badge>
                 </h4>
               </div>
-              <div className="mark-input">
-                <textarea className="input"> </textarea>
+              <div className="mark-input" style={inputStyle}>
+                <textarea
+                  className="input"
+                  style={inputStyle}>
+                </textarea>
               </div>
             </div>
 
@@ -39,8 +56,7 @@ export default class App extends React.Component {
                   </Badge>
                 </h4>
               </div>
-              <div className="mark-input">
-                <textarea className="input"> </textarea>
+              <div style={outputStyle}>
               </div>
             </div>
           </div>
