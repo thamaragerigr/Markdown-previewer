@@ -56,6 +56,7 @@ export default class App extends React.Component {
                     }} />
                 </div>
               </div>
+              
             {/* <MarkdownPreview text={this.state.markdown}/> */}
 
             <div className="col-md-6 mt-5 mt-md-0">
