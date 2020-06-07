@@ -1,5 +1,9 @@
+// import MarkdownPreview from "./components/MarkdownPreviewer.js";
+import "./App.css";
 import React from "react";
-import Badge from "react-bootstrap/Badge";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+let marked = require("marked");
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,33 +17,21 @@ export default class App extends React.Component {
     this.setState({ markdown });
   }
 
-  render() {
-    var inputStyle = {
-      width: "400px",
-      height: "50vh",
-      marginLeft: "auto",
-      marginRight: "auto",
-      padding: "10px",
-    };
-    var outputStyle = {
-      width: "400px",
-      height: "50vh",
-      backgroundColor: "#DCDCDC",
-      marginLeft: "auto",
-      marginRight: "auto",
-      padding: "10px",
-    };
+  resetInput = () => {
+    this.setState({ markdown: '' });
+  }
 
+  render() {
     return (
       <div className="App">
-        <div className="container">
+        <div className="wrapper">
           <div className="row mt-4">
             <div className="col text-center">
               <h1>
                 {" "}
-                <Badge className="text-align-center" variant="light">
+                <div className="text-align-center" variant="light">
                   Markdown Previewer
-                </Badge>
+                </div>
               </h1>
             </div>
           </div>
@@ -47,38 +39,37 @@ export default class App extends React.Component {
           <div className="row mt-4">
             <div className="col-md-6">
               {" "}
-              <div className="col text-center">
-                <h4>
-                  <Badge className="text-align-center" variant="secondary">
-                    Markdown Input
-                  </Badge>
+              <div className="text-center">
+                <h4  className="text-align-center sub-title" variant="secondary">
+                    Markdown 
+                    <Button variant="outline-secondary" className="trash-button" onClick={this.resetInput}><i className="fas fa-trash-alt"></i></Button>{' '}
                 </h4>
               </div>
-              <div className="input" style={inputStyle}>
-                <textarea
-                  className="input"
-                  style={inputStyle}
-                  value={this.state.markdown}
-                  onChange={(e) => {
-                    this.updateMarkdown(e.target.value);
-                  }}
-                >
-                  {" "}
-                  {console.log(this.state.markdown)}
-                </textarea>
+              <div className="input inputStyle">
+              <Form.Control
+                    as="textarea" 
+                    rows="21" 
+                    className="input"
+                    value={this.state.markdown}
+                    onChange={(e) => {
+                      this.updateMarkdown(e.target.value);
+                    }} />
+                </div>
               </div>
-            </div>
+            {/* <MarkdownPreview text={this.state.markdown}/> */}
 
-            <div className="col-md-6">
+            <div className="col-md-6 mt-5 mt-md-0">
               {" "}
               <div className="col text-center">
-                <h4>
-                  <Badge className="text-align-center" variant="secondary">
+                <h4 className="text-align-center sub-title" variant="secondary">
                     Preview
-                  </Badge>
                 </h4>
               </div>
-              <div style={outputStyle}></div>
+               <div
+                className="outputStyle"
+                dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}
+                >
+                </div>
             </div>
           </div>
         </div>

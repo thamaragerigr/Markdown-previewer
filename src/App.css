@@ -1,0 +1,38 @@
+.App{
+    font-family: 'Quicksand', sans-serif;
+    margin: 1rem;
+}
+h1{
+    color: rgb(78, 78, 78) !important;
+    font-weight: bold !important;
+}
+
+.wrapper{
+    margin: 2rem;
+}
+
+.sub-title{
+  color: rgb(78, 78, 78) !important;
+  margin-bottom: .5rem;
+  font-weight: bold !important;
+  padding-bottom: .75rem
+}
+
+.inputStyle{
+    height: 70vh;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.outputStyle{
+    height: 71vh;
+    background:  rgb(248, 248, 248);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .25rem;
+    padding: .375rem .75rem
+}
+
+.trash-button{
+    float: right;
+}
